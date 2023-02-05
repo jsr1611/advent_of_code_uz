@@ -6,23 +6,22 @@
 
 package day04;
 
+import Utils.CommonUtils;
+
 import java.io.*;
 
 public class Day04 {
+    CommonUtils commonUtils;
     // Declaring a string variable
     String lineStr;
     String[] numbersRange;
-    BufferedReader br;
     int result = 0;
     int num1=0,num2=0,num3=0,num4=0;
 
 
 
     public Day04() throws FileNotFoundException {
-        File file = new File(
-                "C:\\Users\\jimmy\\IdeaProjects\\advent_of_code_uz\\2022\\Java\\Jumanazar\\day04\\input.txt");
-        // Creating an object of BufferedReader class
-        br = new BufferedReader(new FileReader(file));
+        commonUtils = new CommonUtils("C:\\Users\\jimmy\\IdeaProjects\\advent_of_code_uz\\2022\\Java\\Jumanazar\\day04\\input.txt");
     }
 
     public int problem01() throws IOException {
@@ -35,7 +34,7 @@ public class Day04 {
             // 1st: starting section number (of 1st Elf) should be smaller or equal to the 2nd Elf's starting section AND ending section number (of the 1st Elf) should be greater or equal to the ending section number of the 2nd Elf. Ex: 3-96, 25-96
             // 2nd: starting section number (of 2nd Elf) should be smaller or equal to the 1st Elf's starting section AND ending section number (of the 2nd Elf) should be greater or equal to the ending section number of the 1st Elf. Ex: 25-96, 3-96
 
-        while ((lineStr = br.readLine()) != null){
+        while ((lineStr = commonUtils.getBufferedReader().readLine()) != null){
             numbersRange = lineStr.split("[-,]");
             num1 = Integer.parseInt(numbersRange[0]);
             num2 = Integer.parseInt(numbersRange[1]);
@@ -58,7 +57,7 @@ public class Day04 {
     }
     public int problem02() throws IOException {
         result = 0;
-        while ((lineStr = br.readLine()) != null) {
+        while ((lineStr = commonUtils.getBufferedReader().readLine()) != null) {
             numbersRange = lineStr.split("[-,]");       // split line into two parts by comma
             num1=Integer.parseInt(numbersRange[0]);
             num2=Integer.parseInt(numbersRange[1]);

@@ -11,6 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommonUtils {
+    private BufferedReader bufferedReader;
+
+    public CommonUtils(String path) {
+        try {
+            File file = new File(path);
+            this.bufferedReader = new BufferedReader(new FileReader(file));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public BufferedReader getBufferedReader() {
+        return bufferedReader;
+    }
 
     public static List<List<Integer>> getListNumbers(String path) throws IOException {
         List<Integer> numberList = null;
