@@ -12,10 +12,16 @@ import java.util.List;
 
 public class CommonUtils {
     private BufferedReader bufferedReader;
+    private String filePath;
 
-    public CommonUtils(String path) {
+    public CommonUtils(String userName, String day, String fileName) {
         try {
-            File file = new File(path);
+            if (userName.equals("myself") || "".equals(userName))
+                userName = "Jumanazar";
+            if( fileName == null || fileName.isEmpty() || fileName.length() > 20)
+                fileName = "input.txt";
+            filePath = "C:\\Users\\jimmy\\IdeaProjects\\advent_of_code_uz\\2022\\Java\\"+userName+"\\"+day+"\\"+fileName;
+            File file = new File(filePath);
             this.bufferedReader = new BufferedReader(new FileReader(file));
         }
         catch (Exception e){
