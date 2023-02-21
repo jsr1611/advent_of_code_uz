@@ -18,7 +18,7 @@ public class CommonUtils {
         try {
             if (userName.equals("myself") || "".equals(userName))
                 userName = "Jumanazar";
-            if( fileName == null || fileName.isEmpty() || fileName.length() > 20)
+            if( fileName == null || fileName.isEmpty() || fileName.length() > 25)
                 fileName = "input.txt";
             filePath = "C:\\Users\\jimmy\\IdeaProjects\\advent_of_code_uz\\2022\\Java\\"+userName+"\\"+day+"\\"+fileName;
             File file = new File(filePath);
